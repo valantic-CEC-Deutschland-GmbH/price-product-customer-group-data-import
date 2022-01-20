@@ -31,7 +31,7 @@ class CustomerGroupNameToIdCustomerGroupStep implements DataImportStepInterface
         if (!isset($this->idCustomerGroupCache[$customerGroupName])) {
             $idCustomerGroup = SpyCustomerGroupQuery::create()
                 ->select(SpyCustomerGroupTableMap::COL_ID_CUSTOMER_GROUP)
-                ->findOneByCustomerGroupKey($customerGroupName);
+                ->findOneByName($customerGroupName);
 
             if (!$idCustomerGroup) {
                 throw new EntityNotFoundException(sprintf('Could not find Customer Group by name "%s"', $customerGroupName));

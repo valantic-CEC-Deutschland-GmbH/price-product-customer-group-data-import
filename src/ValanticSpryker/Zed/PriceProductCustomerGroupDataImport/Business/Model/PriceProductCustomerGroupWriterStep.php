@@ -32,7 +32,7 @@ class PriceProductCustomerGroupWriterStep extends PublishAwareStep implements Da
         }
 
         if (!$priceProductCustomerGroupEntity) {
-            $priceProductCustomerGroupEntity = (new SpyPriceProductCustomerGroup())
+            $priceProductCustomerGroupEntity = (new VsyPriceProductCustomerGroup())
                 ->setFkCustomerGroup($dataSet[PriceProductCustomerGroupDataSetInterface::ID_CUSTOMER_GROUP]);
 
             if (!empty($dataSet[PriceProductCustomerGroupDataSetInterface::ID_PRODUCT_ABSTRACT])) {
