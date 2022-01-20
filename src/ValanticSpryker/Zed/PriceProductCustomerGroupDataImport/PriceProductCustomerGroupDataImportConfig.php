@@ -19,11 +19,11 @@ class PriceProductCustomerGroupDataImportConfig extends DataImportConfig
      *
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
-    public function getPriceProductMerchantRelationshipDataImporterConfiguration(): DataImporterConfigurationTransfer
+    public function getPriceProductCustomerGroupDataImporterConfiguration(): DataImporterConfigurationTransfer
     {
         $moduleDataImportDirectory = $this->getModuleRoot() . 'data' . DIRECTORY_SEPARATOR . 'import' . DIRECTORY_SEPARATOR;
 
-        return $this->buildImporterConfiguration($moduleDataImportDirectory . 'price_product_merchant_relationship.csv', static::IMPORT_TYPE_PRICE_PRODUCT_CUSTOMER_GROUP);
+        return $this->buildImporterConfiguration($moduleDataImportDirectory . 'price_product_customer_group.csv', static::IMPORT_TYPE_PRICE_PRODUCT_CUSTOMER_GROUP);
     }
 
     /**

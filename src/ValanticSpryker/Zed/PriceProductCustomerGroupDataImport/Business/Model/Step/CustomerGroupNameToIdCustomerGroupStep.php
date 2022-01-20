@@ -30,11 +30,11 @@ class CustomerGroupNameToIdCustomerGroupStep implements DataImportStepInterface
         $customerGroupName = $dataSet[PriceProductCustomerGroupDataSetInterface::CUSTOMER_GROUP_NAME];
         if (!isset($this->idCustomerGroupCache[$customerGroupName])) {
             $idCustomerGroup = SpyCustomerGroupQuery::create()
-                ->select(SpyCustomerGroupTableMap::COL_ID_MERCHANT_RELATIONSHIP)
+                ->select(SpyCustomerGroupTableMap::COL_ID_CUSTOMER_GROUP)
                 ->findOneByCustomerGroupKey($customerGroupName);
 
             if (!$idCustomerGroup) {
-                throw new EntityNotFoundException(sprintf('Could not find Merchant Relationship by key "%s"', $customerGroupName));
+                throw new EntityNotFoundException(sprintf('Could not find Customer Group by name "%s"', $customerGroupName));
             }
 
             $this->idCustomerGroupCache[$customerGroupName] = $idCustomerGroup;

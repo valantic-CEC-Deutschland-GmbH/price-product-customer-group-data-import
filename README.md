@@ -45,3 +45,19 @@ protected function getDataImporterPlugins(): array
     ];
 }
 ```
+
+`src/Pyz/Zed/Console/ConsoleDependencyProvider.php`
+
+```
+use ValanticSpryker\Zed\PriceProductCustomerGroupDataImport\PriceProductCustomerGroupDataImportConfig;
+
+...
+
+protected function getConsoleCommands(Container $container): array
+{
+    $commands = [
+        ...
+        new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . PriceProductCustomerGroupDataImportConfig::IMPORT_TYPE_PRICE_PRODUCT_CUSTOMER_GROUP),
+    ];
+}
+```

@@ -25,12 +25,12 @@ class PriceProductCustomerGroupDataImportBusinessFactory extends DataImportBusin
     public function createPriceProductCustomerGroupDataImport()
     {
         $dataImporter = $this->getCsvDataImporterFromConfig(
-            $this->getConfig()->getPriceProductMerchantRelationshipDataImporterConfiguration(),
+            $this->getConfig()->getPriceProductCustomerGroupDataImporterConfiguration(),
         );
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
         $dataSetStepBroker
-            ->addStep($this->createMerchantRelationshipKeyToIdBusinessUnitStep())
+            ->addStep($this->createCustomerGroupToIdCustomerGroupStep())
             ->addStep($this->createProductSkuToIdProductStep())
             ->addStep($this->createStoreToIdStoreStep())
             ->addStep($this->createCurrencyToIdCurrencyStep())
@@ -46,7 +46,7 @@ class PriceProductCustomerGroupDataImportBusinessFactory extends DataImportBusin
     /**
      * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
      */
-    public function createMerchantRelationshipKeyToIdBusinessUnitStep(): DataImportStepInterface
+    public function createCustomerGroupToIdCustomerGroupStep(): DataImportStepInterface
     {
         return new CustomerGroupNameToIdCustomerGroupStep();
     }
