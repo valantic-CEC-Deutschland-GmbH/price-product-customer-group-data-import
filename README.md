@@ -1,6 +1,6 @@
 # Price Product Customer Group Data Import
 
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.3-8892BF.svg)](https://php.net/)
 
 This module has demo data and importer for price products for customer groups.
 
