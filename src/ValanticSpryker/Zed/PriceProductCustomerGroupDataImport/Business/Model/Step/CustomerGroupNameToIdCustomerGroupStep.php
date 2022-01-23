@@ -6,7 +6,6 @@ namespace ValanticSpryker\Zed\PriceProductCustomerGroupDataImport\Business\Model
 
 use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerGroupTableMap;
 use Orm\Zed\CustomerGroup\Persistence\SpyCustomerGroupQuery;
-use Spryker\Zed\DataImport\Business\Exception\EntityNotFoundException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use ValanticSpryker\Zed\PriceProductCustomerGroupDataImport\Business\Model\DataSet\PriceProductCustomerGroupDataSetInterface;
@@ -29,15 +28,15 @@ class CustomerGroupNameToIdCustomerGroupStep implements DataImportStepInterface
     {
         $customerGroupName = $dataSet[PriceProductCustomerGroupDataSetInterface::CUSTOMER_GROUP_NAME];
         if (!isset($this->idCustomerGroupCache[$customerGroupName])) {
-            $idCustomerGroup = SpyCustomerGroupQuery::create()
-                ->select(SpyCustomerGroupTableMap::COL_ID_CUSTOMER_GROUP)
-                ->findOneByName($customerGroupName);
+            $customerGroupEntity = SpyCustomerGroupQuery::create()
+                ->filterByName($customerGroupName)
+                ->findOneOrCreate();
 
-            if (!$idCustomerGroup) {
-                throw new EntityNotFoundException(sprintf('Could not find Customer Group by name "%s"', $customerGroupName));
+            if ($customerGroupEntity->isNew()) {
+                $customerGroupEntity->save();
             }
 
-            $this->idCustomerGroupCache[$customerGroupName] = $idCustomerGroup;
+            $this->idCustomerGroupCache[$customerGroupName] = $customerGroupEntity->getIdCustomerGroup();
         }
 
         $dataSet[PriceProductCustomerGroupDataSetInterface::ID_CUSTOMER_GROUP] = $this->idCustomerGroupCache[$customerGroupName];
