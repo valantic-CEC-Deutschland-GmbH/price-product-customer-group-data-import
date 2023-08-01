@@ -1,8 +1,8 @@
 {
-  "name": "valantic-spryker/price-product-customer-group-data-import",
+  "name": "valantic-cec/price-product-customer-group-data-import",
   "type": "library",
   "description": "This module has demo data and importer for price products for customer groups.",
-  "license": "MIT",
+  "license": "proprietary",
   "require": {
     "php": ">=7.3",
     "spryker/currency": "^3.0.0",
@@ -37,12 +37,6 @@
     "cs-check": "phpcs -p -s --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml src/ tests/",
     "cs-fix": "phpcbf -p --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml src/ tests/"
   },
-  "repositories": {
-    "gitlab.nxs360.com/461": {
-      "type": "composer",
-      "url": "https://gitlab.nxs360.com/api/v4/group/461/-/packages/composer/packages.json"
-    }
-  },
   "extra": {
     "branch-alias": {
       "dev-master": "1.0.x-dev"
@@ -52,7 +46,6 @@
     "sort-packages": true,
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true
-    },
-    "gitlab-domains": ["gitlab.nxs360.com"]
+    }
   }
 }
