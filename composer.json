@@ -1,5 +1,5 @@
 {
-  "name": "valantic-cec/price-product-customer-group-data-import",
+  "name": "valantic-spryker/price-product-customer-group-data-import",
   "type": "library",
   "description": "This module has demo data and importer for price products for customer groups.",
   "license": "proprietary",
