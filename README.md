@@ -6,7 +6,7 @@ This module has demo data and importer for price products for customer groups.
 
 ### Install package
 ```
-composer req valantic-cec/price-product-customer-group-data-import
+composer req valantic-spryker/price-product-customer-group-data-import
 ```
 
 ### Register plugins
